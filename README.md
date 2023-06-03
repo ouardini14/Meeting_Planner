@@ -20,7 +20,7 @@ The Meeting Planner API for managing reservations, rooms, and meeting types. It 
 - Express
 - mongoose 
 - nodemon
-
+- Jest & Supertest (For testing)
 ## Getting Started
 ```bash
 git clone https://github.com/ouardini14/Meeting_Planner.git
