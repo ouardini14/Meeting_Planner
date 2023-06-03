@@ -3,7 +3,7 @@ const MeetingService = require("../services/MeetingService");
 const NewMeeting = async (req, res) => {
   try {
     const result = await MeetingService.addMeeting(req.body);
-    res.status(200).json(result);
+    res.status(201).json(result);
   } catch (error) {
     res.status(500).json(error);
   }

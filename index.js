@@ -27,5 +27,5 @@ app.use("/Meetings", Meetingrouter)
 app.use("/Reservations", Reservationrouter)
 
 
-
+module.exports=app
 

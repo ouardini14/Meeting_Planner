@@ -86,7 +86,7 @@ const addReservation = async (reservation) => {
          const existingReservation = await CheckAvailability(reservation.Date, reservation.StartTime, reservation.EndTime, room.Name)
          if (!existingReservation) {
             const result = await saveReservation({ Room_name: room.Name, ...reservation })
-            status = 200
+            status = 201
             message = { Message: room.Name + " is reserved Successfully", result: result }
             return { status, message }
          }
@@ -104,6 +104,7 @@ const addReservationList = async (ReservationsList, Date) => {
    const SuccessfulReservations = []
    const FailedReservations = []
    const InvalidReservations = []
+   const NewSchedule = []
 
    for (const reservation of ReservationsList) {
       if (validate({ Date: Date, ...reservation })) {
@@ -116,6 +117,7 @@ const addReservationList = async (ReservationsList, Date) => {
                const existingReservation = await CheckAvailability(Date, reservation.StartTime, reservation.EndTime, room.Name)
                if (!existingReservation) {
                   await saveReservation({ Room_name: room.Name, Date: Date, ...reservation })
+                  NewSchedule.push({ Name: reservation.Name, Room: room.Name, Time: reservation.StartTime + "h-" + reservation.EndTime + "h" })
                   SuccessfulReservations.push(reservation.Name)
                   break
                }
@@ -128,7 +130,7 @@ const addReservationList = async (ReservationsList, Date) => {
       }
 
    }
-   return { SuccessfulReservations, FailedReservations, InvalidReservations }
+   return { SuccessfulReservations, FailedReservations, InvalidReservations,NewSchedule }
 }
 
 const deleteReservationsByDate = async (date) => {

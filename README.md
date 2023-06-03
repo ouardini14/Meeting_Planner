@@ -1,6 +1,11 @@
+
+<h1 align="center">The Meeting Planner API</h1>
+
+------
+
 # Meeting Planner API
 
-The Meeting Planner API is a tool for managing reservations, rooms, and meeting types. It provides an solution for scheduling and optimizing meetings .
+The Meeting Planner API for managing reservations, rooms, and meeting types. It provides an solution for scheduling and optimizing meetings .
 
 ## Features
 

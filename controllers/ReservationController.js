@@ -13,8 +13,8 @@ const NewReservation = async (req, res) => {
 const NewReservationsList = async (req, res) => {
 
   try {
-    const { SuccessfulReservations, FailedReservations, InvalidReservations } = await ReservationService.addReservationList(req.body.list, req.body.Date)
-    return res.status(200).json({ "Accepted Reservations": SuccessfulReservations, "Failed Reservations": FailedReservations, "Invalid Reservations ": InvalidReservations })
+    const { SuccessfulReservations, FailedReservations, InvalidReservations,NewSchedule } = await ReservationService.addReservationList(req.body.list, req.body.Date)
+    return res.status(201).json({ "Schedule ":NewSchedule,"Accepted Reservations": SuccessfulReservations, "Failed Reservations": FailedReservations, "Invalid Reservations ": InvalidReservations })
   } catch (error) {
     res.status(500).json(error);
   }
