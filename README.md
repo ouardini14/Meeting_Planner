@@ -22,12 +22,17 @@ The Meeting Planner API for managing reservations, rooms, and meeting types. It 
 - nodemon
 
 ## Getting Started
-
 ```bash
 git clone https://github.com/ouardini14/Meeting_Planner.git
 cd meeting-planner
 npm install
 npm start
+```
+### For tests
+```bash
+npm test --  --testPathPattern=meetings.test.js
+npm test --  --testPathPattern=rooms.test.js
+npm test --  --testPathPattern=reservations.test.js
 ```
 ## API Endpoints
 
